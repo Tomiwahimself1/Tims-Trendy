@@ -15,7 +15,7 @@ function changeHeroImage() {
 }
 
 // change image every 5 seconds
-setInterval(changeHeroImage, 8000);
+setInterval(changeHeroImage, 5000);
 
 
 
