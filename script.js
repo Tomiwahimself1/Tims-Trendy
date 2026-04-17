@@ -6,30 +6,24 @@ const heroImages = [
 ];
 
 let currentIndex = 0;
-
 const heroImg = document.getElementById("heroImg");
 
 function changeHeroImage() {
-    currentIndex = (currentIndex + 1) % heroImages.length;
-    heroImg.src = heroImages[currentIndex];
-}
-
-// change image every 5 seconds
-setInterval(changeHeroImage, 5000);
-
-
-
-
-
-function changeHeroImage() {
+    // fade out
     heroImg.style.opacity = 0;
 
     setTimeout(() => {
+        // change image after fade out
         currentIndex = (currentIndex + 1) % heroImages.length;
         heroImg.src = heroImages[currentIndex];
+
+        // fade in
         heroImg.style.opacity = 1;
-    }, 400);
+    }, 500);
 }
+
+// run every 5 seconds
+setInterval(changeHeroImage, 5000);
 
 
 

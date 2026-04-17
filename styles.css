@@ -1,7 +1,7 @@
 #heroImg {
-    transition: opacity 0.9s ease-in-out;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
 }
-
 
 
 
