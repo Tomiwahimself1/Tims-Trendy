@@ -1,8 +1,8 @@
 const heroImages = [
     "fashion website/IMG_7370.JPG",
-    "fashion website/IMG_7373.JPG",
-    "fashion website/IMG_7378.JPG",
-    "fashion website/IMG_7390.JPG"
+    "fashion website/IMG_7364.JPG",
+    "fashion website/IMG_7371.JPG",
+    "fashion website/IMG_7388.JPG"
 ];
 
 let currentIndex = 0;
