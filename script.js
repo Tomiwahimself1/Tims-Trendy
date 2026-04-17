@@ -33,6 +33,13 @@ setInterval(changeHeroImage, 6000);
 
 
 
+
+
+
+
+
+
+
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
