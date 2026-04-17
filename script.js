@@ -21,7 +21,7 @@ function changeHeroImage() {
             heroImg.style.opacity = 1;
         };
 
-    }, 700); // longer fade-out = smoother easing
+    }, 600); // longer fade-out = smoother easing
 }
 
 // run every 5 seconds
