@@ -1,3 +1,42 @@
+const heroImages = [
+    "fashion website/IMG_7370.JPG",
+    "fashion website/IMG_7373.JPG",
+    "fashion website/IMG_7378.JPG",
+    "fashion website/IMG_7390.JPG"
+];
+
+let currentIndex = 0;
+
+const heroImg = document.getElementById("heroImg");
+
+function changeHeroImage() {
+    currentIndex = (currentIndex + 1) % heroImages.length;
+    heroImg.src = heroImages[currentIndex];
+}
+
+// change image every 3 seconds
+setInterval(changeHeroImage, 5000);
+
+
+
+
+
+function changeHeroImage() {
+    heroImg.style.opacity = 0;
+
+    setTimeout(() => {
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        heroImg.src = heroImages[currentIndex];
+        heroImg.style.opacity = 1;
+    }, 400);
+}
+
+
+
+
+
+
+
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
