@@ -13,17 +13,19 @@ function changeHeroImage() {
     heroImg.style.opacity = 0;
 
     setTimeout(() => {
-        // change image after fade out
         currentIndex = (currentIndex + 1) % heroImages.length;
         heroImg.src = heroImages[currentIndex];
 
-        // fade in
-        heroImg.style.opacity = 1;
-    }, 500);
+        // force browser reflow (VERY IMPORTANT)
+        heroImg.onload = () => {
+            heroImg.style.opacity = 1;
+        };
+
+    }, 700); // longer fade-out = smoother easing
 }
 
 // run every 5 seconds
-setInterval(changeHeroImage, 5000);
+setInterval(changeHeroImage, 6000);
 
 
 
