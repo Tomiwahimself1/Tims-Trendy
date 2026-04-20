@@ -38,6 +38,84 @@ setInterval(changeHeroImage, 6000);
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+
+    const galleryImages = document.querySelectorAll(".project-image img");
+
+    let galleryIndex = 0;
+
+    if (!modal || galleryImages.length === 0) {
+        console.warn("Gallery modal or images not found");
+        return;
+    }
+
+    galleryImages.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            galleryIndex = index;
+        });
+    });
+
+    function showNext() {
+        galleryIndex = (galleryIndex + 1) % galleryImages.length;
+        modalImg.src = galleryImages[galleryIndex].src;
+    }
+
+    function showPrev() {
+        galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+        modalImg.src = galleryImages[galleryIndex].src;
+    }
+
+    nextBtn?.addEventListener("click", showNext);
+    prevBtn?.addEventListener("click", showPrev);
+
+    closeBtn?.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (modal.style.display === "block") {
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
+            if (e.key === "Escape") modal.style.display = "none";
+        }
+    });
+
+    let startX = 0;
+
+    modal.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    modal.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
+
+        if (startX - endX > 50) showNext();
+        if (endX - startX > 50) showPrev();
+    });
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+});
+
+
+
+
+
+
+
+
 
 
 // Mobile Menu Toggle
